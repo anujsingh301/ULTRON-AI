@@ -1,0 +1,19 @@
+rules:
+  - id: ultron.python.dynamic-code-execution
+    languages:
+      - python
+    message: Dynamic code execution can run untrusted input.
+    severity: WARNING
+    metadata:
+      cwe: "CWE-95"
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: exec(...)
+  - id: ultron.python.shell-enabled-subprocess
+    languages:
+      - python
+    message: Shell-enabled subprocess calls can interpret injected shell syntax.
+    severity: WARNING
+    metadata:
+      cwe: "CWE-78"
+    pattern: subprocess.$METHOD(..., shell=True, ...)

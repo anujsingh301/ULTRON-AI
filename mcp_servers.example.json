@@ -1,0 +1,24 @@
+{
+  "servers": [
+    {
+      "name": "filesystem",
+      "command": "mcp-server-filesystem",
+      "args": [
+        "/ABSOLUTE/PATH/TO/APPROVED/WORKSPACE"
+      ],
+      "env_passthrough": [],
+      "required_env": [],
+      "allowed_tools": [
+        "list_directory",
+        "read_text_file",
+        "search_files"
+      ],
+      "workspace_path_arguments": {
+        "list_directory": ["path"],
+        "read_text_file": ["path"],
+        "search_files": ["path"]
+      },
+      "timeout_seconds": 20
+    }
+  ]
+}
